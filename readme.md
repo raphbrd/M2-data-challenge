@@ -9,6 +9,9 @@ The `data` folder contains the train and test datasets for both challenges.
 - Each challenges has 100,000 rows for training and a number of features (see below for full description).
 - The test size varies between the two challenges and there is no access to the predictors.
 
+> Preprocessed data are also saved in the `data` folder, but not in the GitHub repo, execute the `preprocessed_*_data.ipynb`
+> notebook first.
+
 The `submission` folder contains the csv files submitted to the Kaggle competitions. Submission format:
 - NYC taxi tips:
     ```
