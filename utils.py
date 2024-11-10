@@ -2,6 +2,23 @@
 import numpy as np
 import pandas as pd
 
+def time_transforms(_df):
+    """ Add relevant columns related to time and duration. No operation is inplace. """
+    _df['day_of_week'] = _df['tpep_pickup_datetime'].dt.strftime('%A')
+    _df['hour'] = _df['tpep_pickup_datetime'].dt.hour
+
+    # création de la variable is_rush_hour
+    _df['is_rush_hour'] = get_rush_hours(_df['hour'], _df['day_of_week'])
+    _df['is_rush_hour'] = _df['is_rush_hour'].astype(int)
+
+    _df["duration"] = _df["tpep_dropoff_datetime"] - _df["tpep_pickup_datetime"]
+    _df["duration"] = _df["duration"].dt.total_seconds() / 60
+
+    # on supprime les variables pep_dropoff_datetime et tpep_pickup_datetime
+    _df.drop(columns=["tpep_pickup_datetime", "tpep_dropoff_datetime", "hour", "day_of_week"], inplace=True)
+
+    return _df
+
 
 def get_trip_duration(taxi_data):
     """ Return the duration in minutes for each trip in taxi data

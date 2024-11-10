@@ -5,12 +5,27 @@ This is the main repository for the following two data challenges:
 - Forest cover type classification
 
 ## Code and data organization
+
+### Code
+This repository gathers code for both challenges:
+
+- regression code files start with `REG_XX`
+- classification code files start with `CLA_XX`
+
+Notebooks are assumed to be run in the given numbering order to ensure all intermediate files (e.g., preprocessing files) are locally present.
+
+### Data paths
+
+The second cell of all notebooks contains the import instructions: change these to your local paths to the data.
+
+### Data structure
+
 The `data` folder contains the train and test datasets for both challenges.
-- Each challenges has 100,000 rows for training and a number of features (see below for full description).
+- Each challenge has 100,000 rows for training and a number of features (see below for full description).
 - The test size varies between the two challenges and there is no access to the predictors.
 
-> Preprocessed data are also saved in the `data` folder, but not in the GitHub repo, execute the `preprocessed_*_data.ipynb`
-> notebook first.
+> Original data and preprocessed data are assumed to be saved in the `data` folder, but not in the GitHub repo. Execute the `REG_01_taxi_data_preprocessing.ipynb`
+> to get the date required in subsequent notebooks.
 
 The `submission` folder contains the csv files submitted to the Kaggle competitions. Submission format:
 - NYC taxi tips:
